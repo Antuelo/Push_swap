@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   phexaup.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/23 14:26:27 by anoviedo          #+#    #+#             */
-/*   Updated: 2025/01/27 22:54:03 by anoviedo         ###   ########.fr       */
+/*   Created: 2024/10/24 14:25:40 by anoviedo          #+#    #+#             */
+/*   Updated: 2024/10/24 15:49:10 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include "../include/push_swap.h"
+#include "libftprintf.h"
 
-int	main(void)
+int	phexaup(unsigned int num)
 {
-	t_stack		stack;
-	t_node		*current;
+	char	*hexa;
+	int		cont;
+	int		temp;
 
-	create_stack(&stack);
-	push(&stack, 10);
-	push(&stack, 20);
-	push(&stack, 30);
-	current = stack.top;
-	printf("contenido de la pila:\n");
-	while (current)
+	hexa = "0123456789ABCDEF";
+	cont = 0;
+	if (num >= 16)
 	{
-		printf("%d\n", current->value);
-		current = current->next;
+		temp = phexaup(num / 16);
+		if (temp == -1)
+			return (-1);
+		cont += temp;
 	}
-	return (0);
+	if (ft_putchar (hexa[num % 16]) == -1)
+		return (-1);
+	cont++;
+	return (cont);
 }

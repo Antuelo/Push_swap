@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putstr_cont.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/23 14:26:27 by anoviedo          #+#    #+#             */
-/*   Updated: 2025/01/27 22:54:03 by anoviedo         ###   ########.fr       */
+/*   Created: 2024/10/15 11:44:42 by anoviedo          #+#    #+#             */
+/*   Updated: 2024/10/26 15:34:56 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include "../include/push_swap.h"
+#include "libftprintf.h"
 
-int	main(void)
+int	ft_putstr_cont(const char *s)
 {
-	t_stack		stack;
-	t_node		*current;
+	size_t	i;
 
-	create_stack(&stack);
-	push(&stack, 10);
-	push(&stack, 20);
-	push(&stack, 30);
-	current = stack.top;
-	printf("contenido de la pila:\n");
-	while (current)
+	if (s == NULL)
 	{
-		printf("%d\n", current->value);
-		current = current->next;
+		if (write (1, "(null)", 6) == -1)
+			return (-1);
+		else
+			return (6);
 	}
-	return (0);
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	if (write (1, s, i) == -1)
+		return (-1);
+	return (i);
 }

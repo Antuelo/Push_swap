@@ -1,34 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/23 14:26:27 by anoviedo          #+#    #+#             */
-/*   Updated: 2025/01/27 22:54:03 by anoviedo         ###   ########.fr       */
+/*   Created: 2024/10/15 11:34:18 by anoviedo          #+#    #+#             */
+/*   Updated: 2024/10/24 15:30:51 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include "../include/push_swap.h"
+#include "libftprintf.h"
 
-int	main(void)
+int	ft_putchar(char c)
 {
-	t_stack		stack;
-	t_node		*current;
-
-	create_stack(&stack);
-	push(&stack, 10);
-	push(&stack, 20);
-	push(&stack, 30);
-	current = stack.top;
-	printf("contenido de la pila:\n");
-	while (current)
-	{
-		printf("%d\n", current->value);
-		current = current->next;
-	}
-	return (0);
+	return (write(1, &c, 1));
 }

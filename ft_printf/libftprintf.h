@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   libftprintf.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/23 14:26:27 by anoviedo          #+#    #+#             */
-/*   Updated: 2025/01/27 22:54:03 by anoviedo         ###   ########.fr       */
+/*   Created: 2024/10/23 15:45:30 by anoviedo          #+#    #+#             */
+/*   Updated: 2024/10/24 15:43:38 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include "../include/push_swap.h"
+#ifndef LIBFTPRINTF_H
+# define LIBFTPRINTF_H
 
-int	main(void)
-{
-	t_stack		stack;
-	t_node		*current;
+# include <stdarg.h>
+# include <stdio.h>
+# include <unistd.h>
 
-	create_stack(&stack);
-	push(&stack, 10);
-	push(&stack, 20);
-	push(&stack, 30);
-	current = stack.top;
-	printf("contenido de la pila:\n");
-	while (current)
-	{
-		printf("%d\n", current->value);
-		current = current->next;
-	}
-	return (0);
-}
+int	ft_putstr_cont(const char *s);
+int	ft_putchar(char c);
+int	ft_putnbr_cont(int n);
+int	ft_printf(const char *s, ...);
+int	phexalow(unsigned int num);
+int	phexaup(unsigned int num);
+int	pmem(void *h);
+int	pnatural(unsigned int n);
+
+#endif
