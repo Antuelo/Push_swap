@@ -6,7 +6,7 @@
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 14:51:06 by anoviedo          #+#    #+#             */
-/*   Updated: 2025/01/28 00:21:40 by anoviedo         ###   ########.fr       */
+/*   Updated: 2025/01/28 00:36:15 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	push(t_stack *stack, int value)
 
 /*pop, para eliminar valor*/
 
-void	pop(t_stack *stack)
+int	pop(t_stack *stack)
 {
 	t_node	*temp;
 	int		value;
