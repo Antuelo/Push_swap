@@ -6,12 +6,15 @@
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 14:51:06 by anoviedo          #+#    #+#             */
-/*   Updated: 2025/01/28 00:36:15 by anoviedo         ###   ########.fr       */
+/*   Updated: 2025/01/28 15:23:11 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 #include <unistd.h>
+
+/*push, pone un numero en lo mas alto de la pila
+y desplaza el que estaba antes en segundo lugar*/
 
 void	push(t_stack *stack, int value)
 {
@@ -19,17 +22,16 @@ void	push(t_stack *stack, int value)
 
 	newnode = malloc(sizeof(t_node));
 	if (!newnode)
-	{
-		write(1,"asignation memory error\n", 24);
 		return ;
-	}
 	newnode->value = value;
 	newnode->next = stack->top;
 	stack->top = newnode;
 	stack->size++;
 }
 
-/*pop, para eliminar valor*/
+/*pop, Elimina el numero que esta en lo mas alto
+devuelve el valor eliminado, y pone en primer lugar
+el que anteriormente estaba segundo*/
 
 int	pop(t_stack *stack)
 {
@@ -44,4 +46,20 @@ int	pop(t_stack *stack)
 	free(temp);
 	stack->size--;
 	return (value);
+}
+
+/*cambia la primer posicion por la segunda de un stack*/
+
+void	swap(t_stack *stack)
+{
+	t_node	*first;
+	t_node	*second;
+
+	if (stack->size < 2)
+		return ;
+	first = stack->top;
+	second = first->next;
+	first->next = second->next;
+	second->next = first;
+	stack->top = second;
 }

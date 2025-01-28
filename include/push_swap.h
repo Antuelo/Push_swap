@@ -6,7 +6,7 @@
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 23:54:39 by anoviedo          #+#    #+#             */
-/*   Updated: 2025/01/28 00:29:06 by anoviedo         ###   ########.fr       */
+/*   Updated: 2025/01/28 15:23:31 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,6 @@ typedef struct s_stack
 void	create_stack(t_stack *stack);
 void	push(t_stack *stack, int value);
 int		pop(t_stack *stack);
+void	swap(t_stack *stack);
 
 #endif
