@@ -6,7 +6,7 @@
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 14:26:27 by anoviedo          #+#    #+#             */
-/*   Updated: 2025/01/28 15:23:17 by anoviedo         ###   ########.fr       */
+/*   Updated: 2025/01/28 21:47:31 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,12 @@ int	main(void)
 	t_node	*current;
 	int		value;
 
-	// Inicializamos la pila
+	/*Inicializamos la pila*/
+
 	create_stack(&stack);
 
-	// Agregamos elementos a la pila
+	/*Agregamos elementos a la pila*/
+
 	push(&stack, 10);
 	push(&stack, 20);
 	push(&stack, 30);
@@ -59,6 +61,22 @@ int	main(void)
 	}
 
 	// Liberamos memoria (puede implementarse más adelante)
+	rotate(&stack);
+	current = stack.top;
+	printf("\nContenido de la pila después de rotate:\n");
+	while (current)
+	{
+		printf("%d\n", current->value);
+		current = current->next;
+	}
+	inverotate(&stack);
+	current = stack.top;
+	printf("\nContenido de la pila después de reverse rotate:\n");
+	while (current)
+	{
+		printf("%d\n", current->value);
+		current = current->next;
+	}
 	return (0);
 }
 
