@@ -6,7 +6,7 @@
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 23:54:39 by anoviedo          #+#    #+#             */
-/*   Updated: 2025/01/28 21:44:00 by anoviedo         ###   ########.fr       */
+/*   Updated: 2025/01/29 17:32:46 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,7 @@ int		pop(t_stack *stack);
 void	swap(t_stack *stack);
 void	rotate(t_stack *stack);
 void	inverotate(t_stack *stack);
+void	pa(t_stack *a, t_stack *b);
+void	pb(t_stack *a, t_stack *b);
 
 #endif
