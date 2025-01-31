@@ -6,7 +6,7 @@
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 14:26:27 by anoviedo          #+#    #+#             */
-/*   Updated: 2025/01/29 17:35:20 by anoviedo         ###   ########.fr       */
+/*   Updated: 2025/01/30 15:57:48 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,33 @@
 #include <stdlib.h>
 #include "../include/push_swap.h"
 
-int	main(void)
+int	main(/*int argc, char **argv*/)
 {
 	t_stack		stack_a;
 	t_stack		stack_b;
 	t_node		*current;
 	int			value;
-
-	/*Inicializamos la pila*/
-
+/*
+	if (!is_valid_number(v[i]))
+	{
+		write(2, "Error\n", 6);
+		exit(1);
+	}
+	if (has_duplicate(&stack_a))
+	{
+		write(2, "Error\n", 6);
+		exit(1);
+	}
+*/
 	create_stack(&stack_a);
 	create_stack(&stack_b);
 
-	/*Agregamos elementos a la pila*/
+/*	Agregamos elementos a la pila
 
 	push(&stack_a, 10);
 	push(&stack_a, 20);
 	push(&stack_a, 30);
-
+*/
 	// Mostramos la pila inicial
 	current = stack_a.top;
 	printf("Contenido de la pila antes de cualquier operación:\n");
@@ -80,32 +89,42 @@ int	main(void)
 		current = current->next;
 	}
 
-	//aplicamos pb
+	// Aplicamos pb (movemos de A a B)
 
-	current = stack_a.top;
 	pb(&stack_a, &stack_b);
-	printf("\nContenido de la pila después de pb:\n");
+	printf("\nContenido de la pila A después de pb:\n");
+	current = stack_a.top;
+	while (current)
+	{
+		printf("%d\n", current->value);
+		current = current->next;
+	}
+	printf("\nContenido de la pila B después de pb:\n");
+	current = stack_b.top;
 	while (current)
 	{
 		printf("%d\n", current->value);
 		current = current->next;
 	}
 
-	//aplicamos pa
-
-	current = stack_a.top;
+	// Aplicamos pa (movemos de B a A)
 	pa(&stack_a, &stack_b);
-	printf("\nContenido de la pila después de pb:\n");
+	printf("\nContenido de la pila A después de pa:\n");
+	current = stack_a.top;
 	while (current)
 	{
 		printf("%d\n", current->value);
 		current = current->next;
+	}
+	printf("\nContenido de la pila B después de pa:\n");
+	current = stack_b.top;
+	else
+	{
+		while (current)
+		{
+			printf("%d\n", current->value);
+			current = current->next;
+		}
 	}
 	return (0);
 }
-
-/*
-gcc -Wall -Wextra -Werror src/main.c
-./src/stack_utils.c src/stack_operations.c -o push_swap
-
-*/
