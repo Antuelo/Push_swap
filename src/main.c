@@ -6,7 +6,7 @@
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 14:26:27 by anoviedo          #+#    #+#             */
-/*   Updated: 2025/02/05 17:00:25 by anoviedo         ###   ########.fr       */
+/*   Updated: 2025/02/06 00:29:40 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,89 @@
 #include <stdlib.h>
 #include "../include/push_swap.h"
 
+#include <unistd.h>
+#include "../include/push_swap.h"
+
+int	first_case(t_stack *a, int f, int s, int t)
+{
+	int	moves = 0;
+
+	if (f > s && s < t && f < t)
+	{
+		swap(a);
+		write(1, "sa\n", 3);
+		moves++;
+	}
+	else if (f > s && s > t)
+	{
+		swap(a);
+		write(1, "sa\n", 3);
+		reverotate(a);
+		write(1, "rra\n", 4);
+		moves += 2;
+	}
+	return (moves);
+}
+
+int	second_case(t_stack *a, int f, int s, int t)
+{
+	int	moves = 0;
+
+	if (f > s && s < t && f > t)
+	{
+		rotate(a);
+		write(1, "ra\n", 3);
+		moves++;
+	}
+	else if (f < s && s > t && f < t)
+	{
+		swap(a);
+		write(1, "sa\n", 3);
+		rotate(a);
+		write(1, "ra\n", 3);
+		moves += 2;
+	}
+	else if (f < s && s > t)
+	{
+		reverotate(a);
+		write(1, "rra\n", 4);
+		moves++;
+	}
+	return (moves);
+}
+
+int	tiny_sort(t_stack *a)
+{
+	int	f, s, t;
+	int	moves = 0;
+
+	if (a->size != 3)
+		return (0);
+
+	f = a->top->value;
+	s = a->top->next->value;
+	t = a->top->next->next->value;
+
+	if (f < s && s < t)
+		return (0);
+
+	moves += first_case(a, f, s, t);
+	if (moves == 0)
+		moves += second_case(a, f, s, t);
+
+	return (moves);
+}
+
+/*
 int	main(int argc, char **argv)
 {
 	int			i;
 	int			value;
+	int			cont;
 	t_stack		stack_a;
 	t_stack		stack_b;
 
+	cont = 0;
 	if (argc < 2)
 		return (0);
 	create_stack(&stack_a);
@@ -42,9 +118,14 @@ int	main(int argc, char **argv)
 		write(1, "error\n", 6);
 		exit(1);
 	}
+	if (stack_a.size == 3)
+	{
+		cont = tiny_sort(&stack_a);
+		return (cont);
+	}
 	return (0);
 }
-
+*/
 /*
 ANTIGUO MAIN DE PRUEBA
 int	main()

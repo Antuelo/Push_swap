@@ -6,7 +6,7 @@
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 23:54:39 by anoviedo          #+#    #+#             */
-/*   Updated: 2025/02/05 17:00:38 by anoviedo         ###   ########.fr       */
+/*   Updated: 2025/02/06 00:04:31 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,6 @@ void	pb(t_stack *a, t_stack *b);
 int		is_valid_number(char *str);
 long	ft_atol(const char *str);
 int		has_duplicate(t_stack *stack);
-
+int		tiny_sort(t_stack *stack);
 
 #endif
