@@ -6,7 +6,7 @@
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 14:26:27 by anoviedo          #+#    #+#             */
-/*   Updated: 2025/01/30 15:57:48 by anoviedo         ###   ########.fr       */
+/*   Updated: 2025/02/05 17:00:25 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,47 @@
 #include <stdlib.h>
 #include "../include/push_swap.h"
 
-int	main(/*int argc, char **argv*/)
+int	main(int argc, char **argv)
+{
+	int			i;
+	int			value;
+	t_stack		stack_a;
+	t_stack		stack_b;
+
+	if (argc < 2)
+		return (0);
+	create_stack(&stack_a);
+	create_stack(&stack_b);
+	i = 1;
+	while (i < argc)
+	{
+		if (!is_valid_number(argv[i]))
+		{
+			write(1, "error\n", 6);
+			exit(1);
+		}
+		value = ft_atol(argv[i]);
+		push(&stack_a, value);
+		i++;
+	}
+	if (has_duplicate(&stack_a))
+	{
+		write(1, "error\n", 6);
+		exit(1);
+	}
+	return (0);
+}
+
+/*
+ANTIGUO MAIN DE PRUEBA
+int	main()
 {
 	t_stack		stack_a;
 	t_stack		stack_b;
 	t_node		*current;
 	int			value;
-/*
+	int			error;
+
 	if (!is_valid_number(v[i]))
 	{
 		write(2, "Error\n", 6);
@@ -31,16 +65,15 @@ int	main(/*int argc, char **argv*/)
 		write(2, "Error\n", 6);
 		exit(1);
 	}
-*/
+
 	create_stack(&stack_a);
 	create_stack(&stack_b);
 
-/*	Agregamos elementos a la pila
 
 	push(&stack_a, 10);
 	push(&stack_a, 20);
 	push(&stack_a, 30);
-*/
+
 	// Mostramos la pila inicial
 	current = stack_a.top;
 	printf("Contenido de la pila antes de cualquier operación:\n");
@@ -61,7 +94,8 @@ int	main(/*int argc, char **argv*/)
 	}
 
 	// Probamos la operación pop
-	value = pop(&stack_a);
+	error = 0;
+	value = pop(&stack_a, &error);
 	printf("\nEl valor eliminado con pop es: %d\n", value);
 	current = stack_a.top;
 	printf("Contenido de la pila después de pop:\n");
@@ -80,7 +114,7 @@ int	main(/*int argc, char **argv*/)
 		printf("%d\n", current->value);
 		current = current->next;
 	}
-	inverotate(&stack_a);
+	reverotate(&stack_a);
 	current = stack_a.top;
 	printf("\nContenido de la pila después de reverse rotate:\n");
 	while (current)
@@ -118,13 +152,11 @@ int	main(/*int argc, char **argv*/)
 	}
 	printf("\nContenido de la pila B después de pa:\n");
 	current = stack_b.top;
-	else
+	while (current)
 	{
-		while (current)
-		{
-			printf("%d\n", current->value);
-			current = current->next;
-		}
+		printf("%d\n", current->value);
+		current = current->next;
 	}
 	return (0);
 }
+*/
