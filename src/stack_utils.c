@@ -6,17 +6,24 @@
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 14:26:54 by anoviedo          #+#    #+#             */
-/*   Updated: 2025/01/29 20:36:08 by anoviedo         ###   ########.fr       */
+/*   Updated: 2025/01/31 16:01:17 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+/* generer un stack vide ... pour le debut du programme
+crea un stack vacio (para el comienzo del programa) */
 
 void	create_stack(t_stack *stack)
 {
 	stack->top = NULL;
 	stack->size = 0;
 }
+
+/*	verifier si c'est une chiffre	(RETURN 1)
+	dans le cas contraire 			(RETURN 0)
+Verifica si es un número */
 
 int	is_valid_number(char *str)
 {
@@ -38,6 +45,10 @@ int	is_valid_number(char *str)
 	return (1);
 }
 
+/* fonction necessaire pour savoir si c'est une
+chiffre plus petit ou plus grande que un INT ...
+funcion necesaria para saber si es un número: transformar un digito "long" */
+
 long	ft_atol(const char *str)
 {
 	int		i;
@@ -47,7 +58,7 @@ long	ft_atol(const char *str)
 	i = 0;
 	num = 0;
 	sign = 1;
-	if (str[i] == '-' || str[i] == '+')
+	if (str[i] == '-')
 	{
 		if (str[i] == '-')
 			sign = -1;

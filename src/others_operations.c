@@ -6,11 +6,13 @@
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 16:27:21 by anoviedo          #+#    #+#             */
-/*   Updated: 2025/01/30 15:55:00 by anoviedo         ###   ########.fr       */
+/*   Updated: 2025/01/31 15:49:18 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+/* sacar de B, para PONER en A*/
 
 void	pa(t_stack *a, t_stack *b)
 {
@@ -21,6 +23,8 @@ void	pa(t_stack *a, t_stack *b)
 	value = pop(b);
 	push(a, value);
 }
+
+/* sacar de A, para PONER en B */
 
 void	pb(t_stack *a, t_stack *b)
 {

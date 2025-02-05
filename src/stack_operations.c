@@ -6,7 +6,7 @@
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 14:51:06 by anoviedo          #+#    #+#             */
-/*   Updated: 2025/01/28 21:48:09 by anoviedo         ###   ########.fr       */
+/*   Updated: 2025/01/31 16:02:37 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ void	swap(t_stack *stack)
 	stack->top = second;
 }
 
+/* poner el primero en el utlimo lugar */
+
 void	rotate(t_stack *stack)
 {
 	t_node	*last;
@@ -83,7 +85,9 @@ void	rotate(t_stack *stack)
 	first->next = NULL;
 }
 
-void	inverotate(t_stack *stack)
+/* poner el ultimo, en el primer lugar */
+
+void	reverotate(t_stack *stack)
 {
 	t_node	*last;
 	t_node	*penul;

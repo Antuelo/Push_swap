@@ -6,7 +6,7 @@
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 23:54:39 by anoviedo          #+#    #+#             */
-/*   Updated: 2025/01/29 20:05:26 by anoviedo         ###   ########.fr       */
+/*   Updated: 2025/01/31 16:03:13 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	push(t_stack *stack, int value);
 int		pop(t_stack *stack);
 void	swap(t_stack *stack);
 void	rotate(t_stack *stack);
-void	inverotate(t_stack *stack);
+void	reverotate(t_stack *stack);
 void	pa(t_stack *a, t_stack *b);
 void	pb(t_stack *a, t_stack *b);
 int		is_valid_number(char *str);
