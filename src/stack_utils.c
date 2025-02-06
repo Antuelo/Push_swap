@@ -6,7 +6,7 @@
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 14:26:54 by anoviedo          #+#    #+#             */
-/*   Updated: 2025/02/05 16:17:10 by anoviedo         ###   ########.fr       */
+/*   Updated: 2025/02/06 19:23:46 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,34 @@ long	ft_atol(const char *str)
 		i++;
 	}
 	return (num * sign);
+}
+
+void	free_stack(t_stack *stack)
+{
+	t_node	*current;
+	t_node	*temp;
+
+	current = stack->top;
+	while (current)
+	{
+		temp = current;
+		current = current->next;
+		free(temp);
+	}
+	stack->top = NULL;
+	stack->size = 0;
+}
+
+int	its_ordered(t_stack *a)
+{
+	t_node	*current;
+
+	current = a->top;
+	while (current->next)
+	{
+		if (current->value > current->next->value)
+			return (1);
+		current = current->next;
+	}
+	return (0);
 }

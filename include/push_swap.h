@@ -6,7 +6,7 @@
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 23:54:39 by anoviedo          #+#    #+#             */
-/*   Updated: 2025/02/06 00:04:31 by anoviedo         ###   ########.fr       */
+/*   Updated: 2025/02/06 19:21:35 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ typedef struct s_stack
 
 void	create_stack(t_stack *stack);
 void	push(t_stack *stack, int value);
-int		pop(t_stack *stack, int *error);
+int		pop(t_stack *stack);
 void	swap(t_stack *stack);
 void	rotate(t_stack *stack);
 void	reverotate(t_stack *stack);
@@ -43,5 +43,8 @@ int		is_valid_number(char *str);
 long	ft_atol(const char *str);
 int		has_duplicate(t_stack *stack);
 int		tiny_sort(t_stack *stack);
+int		small_sort(t_stack *a, t_stack *b);
+void	free_stack(t_stack *stack);
+int		its_ordered(t_stack *a);
 
 #endif

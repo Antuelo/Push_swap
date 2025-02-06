@@ -6,7 +6,7 @@
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 14:51:06 by anoviedo          #+#    #+#             */
-/*   Updated: 2025/02/05 23:56:19 by anoviedo         ###   ########.fr       */
+/*   Updated: 2025/02/06 18:25:58 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ y desplaza el que estaba antes en segundo lugar*/
 void	push(t_stack *stack, int value)
 {
 	t_node	*newnode;
+	t_node	*current;
 
 	newnode = malloc(sizeof(t_node));
 	if (!newnode)
@@ -27,8 +28,16 @@ void	push(t_stack *stack, int value)
 		return ;
 	}
 	newnode->value = value;
-	newnode->next = stack->top;
-	stack->top = newnode;
+	newnode->next = NULL;
+	if (!stack->top)
+		stack->top = newnode;
+	else
+	{
+		current = stack->top;
+		while (current->next)
+			current = current->next;
+		current->next = newnode;
+	}
 	stack->size++;
 }
 
@@ -36,17 +45,13 @@ void	push(t_stack *stack, int value)
 devuelve el valor eliminado, y pone en primer lugar
 el que anteriormente estaba segundo*/
 
-int	pop(t_stack *stack, int *error)
+int	pop(t_stack *stack)
 {
 	t_node	*temp;
 	int		value;
 
 	if (stack->top == NULL)
-	{
-		*error = 1;
 		return (-1);
-	}
-	*error = 0;
 	temp = stack->top;
 	value = temp->value;
 	stack->top = temp->next;

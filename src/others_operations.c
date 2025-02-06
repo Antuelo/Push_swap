@@ -6,7 +6,7 @@
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 16:27:21 by anoviedo          #+#    #+#             */
-/*   Updated: 2025/02/05 16:03:15 by anoviedo         ###   ########.fr       */
+/*   Updated: 2025/02/06 17:52:42 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	pa(t_stack *a, t_stack *b)
 	int		error;
 
 	error = 0;
-	value = pop(b, &error);
+	value = pop(b);
 	if (error)
 		return ;
 	push(a, value);
@@ -34,7 +34,7 @@ void	pb(t_stack *a, t_stack *b)
 	int		error;
 
 	error = 0;
-	value = pop(a, &error);
+	value = pop(a);
 	if (error)
 		return ;
 	push(b, value);
