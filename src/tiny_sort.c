@@ -6,7 +6,7 @@
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 17:06:31 by anoviedo          #+#    #+#             */
-/*   Updated: 2025/02/06 09:51:17 by anoviedo         ###   ########.fr       */
+/*   Updated: 2025/02/11 14:02:54 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,24 +28,24 @@ int	first_case(t_stack *stack, int f, int s, int t)
 		write (1, "rra\n", 4);
 		return (2);
 	}
-	if (f < s && s > t)
+	if (f < s && s > t && f > t)
 	{
-		swap(stack);
-		write (1, "sa\n", 3);
-		rotate(stack);
-		write (1, "ra\n", 3);
-		return (2);
+		reverotate(stack);
+		write (1, "rra\n", 4);
+		return (1);
 	}
 	return (0);
 }
 
 int	second_case(t_stack *stack, int f, int s, int t)
 {
-	if (f < s && s > t)
+	if (f < s && s > t && f < t)
 	{
 		reverotate(stack);
 		write (1, "rra\n", 4);
-		return (1);
+		swap(stack);
+		write (1, "sa\n", 3);
+		return (2);
 	}
 	if (f > s && s < t)
 	{

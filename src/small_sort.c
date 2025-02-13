@@ -6,7 +6,7 @@
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:01:48 by anoviedo          #+#    #+#             */
-/*   Updated: 2025/02/06 19:22:32 by anoviedo         ###   ########.fr       */
+/*   Updated: 2025/02/11 13:34:16 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	move_to_top(t_stack *a, int pos)
 	cont = 0;
 	if (pos == 0)
 		return (0);
-	if (pos <= a->size / 2)
+	if (pos <= a->size)
 	{
 		while (pos--)
 		{

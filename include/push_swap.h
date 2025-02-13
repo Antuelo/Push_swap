@@ -6,7 +6,7 @@
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 23:54:39 by anoviedo          #+#    #+#             */
-/*   Updated: 2025/02/06 19:21:35 by anoviedo         ###   ########.fr       */
+/*   Updated: 2025/02/12 21:03:50 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,6 @@ int		tiny_sort(t_stack *stack);
 int		small_sort(t_stack *a, t_stack *b);
 void	free_stack(t_stack *stack);
 int		its_ordered(t_stack *a);
+int		quicksort(t_stack *a, t_stack *b);
 
 #endif

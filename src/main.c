@@ -6,7 +6,7 @@
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 14:26:27 by anoviedo          #+#    #+#             */
-/*   Updated: 2025/02/06 19:25:33 by anoviedo         ###   ########.fr       */
+/*   Updated: 2025/02/13 10:11:48 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ int	main(int argc, char **argv)
 		if (!is_valid_number(argv[i]))
 		{
 			write(1, "error\n", 6);
+			free(&stack_a);
+			free(&stack_b);
 			exit(1);
 		}
 		value = ft_atol(argv[i]);
@@ -43,7 +45,8 @@ int	main(int argc, char **argv)
 		write(1, "error\n", 6);
 		exit(1);
 	}
-	printf("el primero es :%d, segundo: %d, y el tercero: %d, cuarto: %d, quinto: %d\n", stack_a.top->value, stack_a.top->next->value, stack_a.top->next->next->value, stack_a.top->next->next->next->value, stack_a.top->next->next->next->next->value);
+	if (argc == 3)
+		printf("el primero es :%d, segundo: %d, y el tercero: %d, cuarto: %d, quinto: %d\n", stack_a.top->value, stack_a.top->next->value, stack_a.top->next->next->value, stack_a.top->next->next->next->value, stack_a.top->next->next->next->next->value);
 	if (stack_a.size == 3)
 	{
 		cont = tiny_sort(&stack_a);
