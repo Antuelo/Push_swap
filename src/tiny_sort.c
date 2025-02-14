@@ -6,7 +6,7 @@
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 17:06:31 by anoviedo          #+#    #+#             */
-/*   Updated: 2025/02/11 14:02:54 by anoviedo         ###   ########.fr       */
+/*   Updated: 2025/02/13 14:07:11 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,21 @@ int	first_case(t_stack *stack, int f, int s, int t)
 	if (f > s && f < t)
 	{
 		swap(stack);
-		write (1, "sa\n", 3);
+		write(1, "sa\n", 3);
 		return (1);
 	}
 	if (f > s && s > t)
 	{
 		swap(stack);
-		write (1, "sa\n", 3);
+		write(1, "sa\n", 3);
 		reverotate(stack);
-		write (1, "rra\n", 4);
+		write(1, "rra\n", 4);
 		return (2);
 	}
 	if (f < s && s > t && f > t)
 	{
 		reverotate(stack);
-		write (1, "rra\n", 4);
+		write(1, "rra\n", 4);
 		return (1);
 	}
 	return (0);
@@ -42,15 +42,15 @@ int	second_case(t_stack *stack, int f, int s, int t)
 	if (f < s && s > t && f < t)
 	{
 		reverotate(stack);
-		write (1, "rra\n", 4);
+		write(1, "rra\n", 4);
 		swap(stack);
-		write (1, "sa\n", 3);
+		write(1, "sa\n", 3);
 		return (2);
 	}
 	if (f > s && s < t)
 	{
 		rotate(stack);
-		write (1, "ra\n", 3);
+		write(1, "ra\n", 3);
 		return (1);
 	}
 	return (0);
@@ -58,14 +58,22 @@ int	second_case(t_stack *stack, int f, int s, int t)
 
 int	tiny_sort(t_stack *stack_a)
 {
-	int		first;
-	int		second;
-	int		third;
-	int		cont;
+	int	first;
+	int	second;
+	int	third;
+	int	cont;
 
 	cont = 0;
-	if (stack_a->size < 3)
+	if (stack_a->size == 2)
+	{
+		if (its_ordered(stack_a))
+		{
+			swap(stack_a);
+			write (1, "sa\n", 3);
+			return (1);
+		}
 		return (0);
+	}
 	first = stack_a->top->value;
 	second = stack_a->top->next->value;
 	third = stack_a->top->next->next->value;

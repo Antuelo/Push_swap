@@ -6,7 +6,7 @@
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 13:03:15 by anoviedo          #+#    #+#             */
-/*   Updated: 2025/02/13 00:27:31 by anoviedo         ###   ########.fr       */
+/*   Updated: 2025/02/13 14:06:07 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	bubble_sort(int *arr, int size)
 {
-	int		i;
-	int		j;
-	int		temp;
+	int	i;
+	int	j;
+	int	temp;
 
 	i = 0;
 	while (i < size - 1)
@@ -64,17 +64,16 @@ int	findmedian(t_stack *a)
 
 int	push_lower_half_to_b(t_stack *a, t_stack *b, int median)
 {
-	int		pushed;
-	int		count;
+	int	count;
+	int	original_size;
 
+	original_size = a->size;
 	count = 0;
-	pushed = 0;
-	while (pushed < a->size / 2)
+	while (a->size > original_size / 2)
 	{
 		if (a->top->value < median)
 		{
 			pb(a, b);
-			pushed++;
 			count++;
 		}
 		else
@@ -88,9 +87,8 @@ int	push_lower_half_to_b(t_stack *a, t_stack *b, int median)
 
 int	quicksort(t_stack *a, t_stack *b)
 {
-	int			median;
-	int			*arr;
-	int			count;
+	int	median;
+	int	count;
 
 	if (its_ordered(a) || a->size <= 1)
 		return (0);
@@ -107,6 +105,7 @@ int	quicksort(t_stack *a, t_stack *b)
 	while (b->size > 0)
 	{
 		pa(a, b);
+		write(1, "pa\n", 3);
 		count++;
 	}
 	return (count);

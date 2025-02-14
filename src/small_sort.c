@@ -5,29 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/06 10:01:48 by anoviedo          #+#    #+#             */
-/*   Updated: 2025/02/11 13:34:16 by anoviedo         ###   ########.fr       */
+/*   Created: 2025/02/13 11:37:06 by anoviedo          #+#    #+#             */
+/*   Updated: 2025/02/13 14:19:17 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	find_biggest(t_stack *a)
+int	find_smallest(t_stack *a)
 {
 	t_node	*current;
-	int		biggest;
+	int		smallest;
 	int		pos;
 	int		i;
 
-	biggest = a->top->value;
+	smallest = a->top->value;
 	current = a->top;
 	pos = 0;
 	i = 0;
 	while (current)
 	{
-		if (current->value > biggest)
+		if (current->value < smallest)
 		{
-			biggest = current->value;
+			smallest = current->value;
 			pos = i;
 		}
 		current = current->next;
@@ -43,7 +43,7 @@ int	move_to_top(t_stack *a, int pos)
 	cont = 0;
 	if (pos == 0)
 		return (0);
-	if (pos <= a->size)
+	if (pos <= a->size / 2)
 	{
 		while (pos--)
 		{
@@ -64,15 +64,15 @@ int	move_to_top(t_stack *a, int pos)
 	return (cont);
 }
 
-int	move_biggest_to_b(t_stack *a, t_stack *b)
+int	move_smallest_to_b(t_stack *a, t_stack *b)
 {
 	int	pos;
 	int	cont;
 
 	cont = 0;
-	pos = find_biggest(a);
+	pos = find_smallest(a);
 	cont += move_to_top(a, pos);
-	push(b, pop(a));
+	pb(a, b);
 	write(1, "pb\n", 3);
 	cont++;
 	return (cont);
@@ -83,25 +83,25 @@ int	small_sort(t_stack *a, t_stack *b)
 	int	cont;
 
 	cont = 0;
-	if (a->size != 5)
+	if (a->size <= 3 || a->size > 5)
 		return (0);
-	cont += move_biggest_to_b(a, b);
-	cont += move_biggest_to_b(a, b);
-	rotate(b);
-	write(1, "rb\n", 3);
-	cont++;
+	if (a->size == 4)
+	{
+		pb(a, b);
+		write(1, "pb\n", 3);
+		cont += tiny_sort(a);
+		pa(a, b);
+		write(1, "pa\n", 3);
+		return (cont += 2);
+	}
+	cont += move_smallest_to_b(a, b);
+	cont += move_smallest_to_b(a, b);
 	cont += tiny_sort(a);
-	if (b->top)
-	{
-		pa(a, b);
-		write(1, "pa\n", 3);
-		cont++;
-	}
-	if (b->top)
-	{
-		pa(a, b);
-		write(1, "pa\n", 3);
-		cont++;
-	}
+	pa(a, b);
+	write(1, "pa\n", 3);
+	cont++;
+	pa(a, b);
+	write(1, "pa\n", 3);
+	cont++;
 	return (cont);
 }
