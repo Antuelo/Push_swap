@@ -6,7 +6,7 @@
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 13:03:15 by anoviedo          #+#    #+#             */
-/*   Updated: 2025/02/13 14:06:07 by anoviedo         ###   ########.fr       */
+/*   Updated: 2025/02/16 12:51:59 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,7 @@ int	findmedian(t_stack *a)
 	node = a->top;
 	arr = malloc(sizeof(int) * a->size);
 	if (!arr)
-	{
-		write(2, "Error: malloc failed in findmedian\n", 35);
 		exit(1);
-	}
 	while (node)
 	{
 		arr[i++] = node->value;

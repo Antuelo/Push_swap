@@ -6,7 +6,7 @@
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 14:51:06 by anoviedo          #+#    #+#             */
-/*   Updated: 2025/02/13 10:58:27 by anoviedo         ###   ########.fr       */
+/*   Updated: 2025/02/16 13:00:56 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ y desplaza el que estaba antes en segundo lugar*/
 
 void	push(t_stack *stack, int value)
 {
-    t_node	*newnode;
+	t_node	*newnode;
 
 	newnode = malloc(sizeof(t_node));
 	if (!newnode)
@@ -28,7 +28,6 @@ void	push(t_stack *stack, int value)
 	stack->top = newnode;
 	stack->size++;
 }
-
 
 /*pop, Elimina el numero que esta en lo mas alto
 devuelve el valor eliminado, y pone en primer lugar
