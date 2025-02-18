@@ -6,7 +6,7 @@
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 13:03:15 by anoviedo          #+#    #+#             */
-/*   Updated: 2025/02/18 12:18:46 by anoviedo         ###   ########.fr       */
+/*   Updated: 2025/02/18 17:46:22 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,8 @@ int	quicksort(t_stack *a, t_stack *b)
 			count = tiny_sort(a);
 		if (b->size > 1 && b->size <= 3)
 			count = inverse_tiny_sort(b);
+		if (b->size > 3 && b->size <= 5)
+			inverse_small_sort(a, b);
 		if (a->size > 3 && a->size <= 5)
 			count = small_sort(a, b);
 		return (count);
