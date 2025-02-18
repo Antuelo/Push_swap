@@ -6,7 +6,7 @@
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 14:26:27 by anoviedo          #+#    #+#             */
-/*   Updated: 2025/02/16 13:02:08 by anoviedo         ###   ########.fr       */
+/*   Updated: 2025/02/17 19:12:42 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int	main(int argc, char **argv)
 	int		i;
 	int		value;
 	int		cont;
+	int		*number;
+	t_node	*node;
 	t_stack	stack_a;
 	t_stack	stack_b;
 
@@ -47,25 +49,42 @@ int	main(int argc, char **argv)
 		free_stack(&stack_b);
 		exit(1);
 	}
-	if (stack_a.size == 1)
+	if (stack_a.size == 1 || !its_ordered(&stack_a))
 	{
 		free_stack(&stack_a);
 		free_stack(&stack_b);
 		return (0);
 	}
 	if (stack_a.size <= 3)
+		cont += tiny_sort(&stack_a);
+	if (stack_a.size > 3 && stack_a.size <= 5)
+		cont += small_sort(&stack_a, &stack_b);
+	if (stack_a.size > 5)
+		cont += quicksort(&stack_a, &stack_b);
+	i = 0;
+	node = malloc(sizeof(t_node));
+	if (!node)
+		return (0);
+	number = malloc(sizeof(int) * stack_a.size);
+	if (!number)
 	{
-		cont = tiny_sort(&stack_a);
-		return (cont);
-	}
-	if (stack_a.size <= 5)
-	{
-		cont = small_sort(&stack_a, &stack_b);
 		free_stack(&stack_a);
 		free_stack(&stack_b);
-		return (cont);
+		return (0);
 	}
-	cont = quicksort(&stack_a, &stack_b);
+	node = stack_a.top;
+	while (node)
+	{
+		number[i] = node->value;
+		node = node->next;
+		i++;
+	}
+	i = 0;
+	while (i < stack_a.size)
+	{
+		printf("%d ", number[i]);
+		i++;
+	}
 	free_stack(&stack_a);
 	free_stack(&stack_b);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 23:54:39 by anoviedo          #+#    #+#             */
-/*   Updated: 2025/02/13 10:28:16 by anoviedo         ###   ########.fr       */
+/*   Updated: 2025/02/17 15:37:21 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdio.h>
 # include "../libft/libft.h"
 # include "../ft_printf/libftprintf.h"
 
@@ -48,5 +49,6 @@ int		small_sort(t_stack *a, t_stack *b);
 void	free_stack(t_stack *stack);
 int		its_ordered(t_stack *a);
 int		quicksort(t_stack *a, t_stack *b);
+int		inverse_tiny_sort(t_stack *b);
 
 #endif

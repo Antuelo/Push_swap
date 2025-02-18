@@ -6,7 +6,7 @@
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 17:06:31 by anoviedo          #+#    #+#             */
-/*   Updated: 2025/02/16 12:32:37 by anoviedo         ###   ########.fr       */
+/*   Updated: 2025/02/17 19:10:46 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	tiny_sort(t_stack *stack_a)
 		if (its_ordered(stack_a))
 		{
 			swap(stack_a);
-			write (1, "sa\n", 3);
+			write(1, "sa\n", 3);
 			return (1);
 		}
 		return (0);

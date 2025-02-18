@@ -6,7 +6,7 @@
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 11:37:06 by anoviedo          #+#    #+#             */
-/*   Updated: 2025/02/16 12:33:42 by anoviedo         ###   ########.fr       */
+/*   Updated: 2025/02/17 19:19:17 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,25 +83,18 @@ int	small_sort(t_stack *a, t_stack *b)
 	int	cont;
 
 	cont = 0;
-	if (a->size <= 3 || a->size > 5)
-		return (0);
-	if (a->size == 4)
-	{
-		pb(a, b);
-		write(1, "pb\n", 3);
-		cont += tiny_sort(a);
-		pa(a, b);
-		write(1, "pa\n", 3);
-		return (cont += 2);
-	}
-	cont += move_smallest_to_b(a, b);
+	if (a->size == 5)
+		cont += move_smallest_to_b(a, b);
 	cont += move_smallest_to_b(a, b);
 	cont += tiny_sort(a);
 	pa(a, b);
 	write(1, "pa\n", 3);
 	cont++;
-	pa(a, b);
-	write(1, "pa\n", 3);
-	cont++;
+	if (b->size > 0)
+	{
+		pa(a, b);
+		write(1, "pa\n", 3);
+		cont++;
+	}
 	return (cont);
 }
