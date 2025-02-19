@@ -6,7 +6,7 @@
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 14:26:27 by anoviedo          #+#    #+#             */
-/*   Updated: 2025/02/17 19:12:42 by anoviedo         ###   ########.fr       */
+/*   Updated: 2025/02/19 00:58:55 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ int	main(int argc, char **argv)
 	int		i;
 	int		value;
 	int		cont;
-	int		*number;
-	t_node	*node;
+//	int		*number;
+//	t_node	*node;
 	t_stack	stack_a;
 	t_stack	stack_b;
 
@@ -61,7 +61,7 @@ int	main(int argc, char **argv)
 		cont += small_sort(&stack_a, &stack_b);
 	if (stack_a.size > 5)
 		cont += quicksort(&stack_a, &stack_b);
-	i = 0;
+/*	i = 0;
 	node = malloc(sizeof(t_node));
 	if (!node)
 		return (0);
@@ -85,6 +85,7 @@ int	main(int argc, char **argv)
 		printf("%d ", number[i]);
 		i++;
 	}
+	printf("\nla cantidad de movimientos fueron: %d\n", cont);*/
 	free_stack(&stack_a);
 	free_stack(&stack_b);
 	return (0);

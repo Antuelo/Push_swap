@@ -6,7 +6,7 @@
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 13:03:15 by anoviedo          #+#    #+#             */
-/*   Updated: 2025/02/18 17:46:22 by anoviedo         ###   ########.fr       */
+/*   Updated: 2025/02/19 00:57:05 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,27 +50,24 @@ int	findmedian(t_stack *a)
 		exit(1);
 	while (node)
 	{
-		arr[i++] = node->value;
+		arr[i] = node->value;
 		node = node->next;
+		i++;
 	}
 	bubble_sort(arr, a->size);
-	median = arr[a->size / 2];
+	median = arr[2];
 	free(arr);
 	return (median);
 }
 
 int	push_lower_half_to_b(t_stack *a, t_stack *b, int median)
 {
-	int	original_size;
 	int	count;
-	int	i;
 	int	pushed;
 
-	original_size = a->size;
 	count = 0;
-	i = 0;
 	pushed = 0;
-	while (i < original_size && pushed < original_size / 2)
+	while (pushed < 2 || count < a->size)
 	{
 		if (a->top->value < median)
 		{
@@ -85,7 +82,6 @@ int	push_lower_half_to_b(t_stack *a, t_stack *b, int median)
 			write(1, "ra\n", 3);
 			count++;
 		}
-		i++;
 	}
 	return (count);
 }
@@ -96,21 +92,16 @@ int	quicksort(t_stack *a, t_stack *b)
 	int	count;
 
 	count = 0;
-	if ((a->size > 1 && a->size <= 5) || (b->size > 1 && b->size <= 3))
+	if (a->size > 5)
 	{
-		if (a->size > 1 && a->size <= 3)
-			count = tiny_sort(a);
-		if (b->size > 1 && b->size <= 3)
-			count = inverse_tiny_sort(b);
-		if (b->size > 3 && b->size <= 5)
-			inverse_small_sort(a, b);
-		if (a->size > 3 && a->size <= 5)
-			count = small_sort(a, b);
-		return (count);
+		median = findmedian(a);
+		count += push_lower_half_to_b(a, b, median);
+		if (b->size > 0)
+			count += inverse_tiny_sort(b);
+		count += quicksort(a, b);
 	}
-	median = findmedian(a);
-	count += push_lower_half_to_b(a, b, median);
-	count += quicksort(a, b);
+	else
+		small_sort(a, b);
 	while (b->size > 0)
 	{
 		pa(a, b);

@@ -6,7 +6,7 @@
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 13:15:42 by anoviedo          #+#    #+#             */
-/*   Updated: 2025/02/18 17:29:29 by anoviedo         ###   ########.fr       */
+/*   Updated: 2025/02/18 18:31:24 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	find_largest(t_stack *a)
 	return (pos);
 }
 
-int	move_to_top(t_stack *a, int pos)
+int	move_to_top_inverse(t_stack *a, int pos)
 {
 	int	cont;
 
@@ -71,7 +71,7 @@ int	move_largest_to_b(t_stack *a, t_stack *b)
 
 	cont = 0;
 	pos = find_largest(a);
-	cont += move_to_top(a, pos);
+	cont += move_to_top_inverse(a, pos);
 	pb(a, b);
 	write(1, "pb\n", 3);
 	cont++;

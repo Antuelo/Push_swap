@@ -6,7 +6,7 @@
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 23:54:39 by anoviedo          #+#    #+#             */
-/*   Updated: 2025/02/18 17:45:29 by anoviedo         ###   ########.fr       */
+/*   Updated: 2025/02/18 20:19:52 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ void	free_stack(t_stack *stack);
 int		its_ordered(t_stack *a);
 int		quicksort(t_stack *a, t_stack *b);
 int		inverse_tiny_sort(t_stack *b);
-int	inverse_small_sort(t_stack *a, t_stack *b);
+int		inverse_small_sort(t_stack *a, t_stack *b);
+
+void	print_stacks(t_stack *a, t_stack *b);
 
 #endif
