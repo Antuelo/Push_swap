@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   inverse_small_sort.c                               :+:      :+:    :+:   */
+/*   sort_inverse_small_sort.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 13:15:42 by anoviedo          #+#    #+#             */
-/*   Updated: 2025/02/18 18:31:24 by anoviedo         ###   ########.fr       */
+/*   Updated: 2025/02/20 08:21:19 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int	inverse_small_sort(t_stack *a, t_stack *b)
 	if (a->size == 5)
 		cont += move_largest_to_b(a, b);
 	cont += move_largest_to_b(a, b);
-	cont += inverse_tiny_sort(a);
+	cont += sort_inverse_b(a);
 	pa(a, b);
 	write(1, "pa\n", 3);
 	cont++;

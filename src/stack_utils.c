@@ -6,7 +6,7 @@
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 14:26:54 by anoviedo          #+#    #+#             */
-/*   Updated: 2025/02/18 20:22:05 by anoviedo         ###   ########.fr       */
+/*   Updated: 2025/02/20 08:12:09 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,27 +100,4 @@ int	its_ordered(t_stack *a)
 		current = current->next;
 	}
 	return (0);
-}
-
-void	print_stacks(t_stack *a, t_stack *b)
-{
-	t_node *node;
-
-	printf("stack_a: ");
-	node = a->top;
-	while (node)
-	{
-		printf("%d ", node->value);
-		node = node->next;
-	}
-	printf("\n");
-
-	printf("stack_b: ");
-	node = b->top;
-	while (node)
-	{
-		printf("%d ", node->value);
-		node = node->next;
-	}
-	printf("\n\n");
 }
