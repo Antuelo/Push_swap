@@ -6,7 +6,7 @@
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 20:30:36 by anoviedo          #+#    #+#             */
-/*   Updated: 2025/02/20 11:20:28 by anoviedo         ###   ########.fr       */
+/*   Updated: 2025/02/25 18:18:49 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ int	findmedian(t_stack *a)
 	int		median;
 	t_node	*node;
 
-	i = 0;
 	node = a->top;
+	i = 0;
 	arr = malloc(sizeof(int) * a->size);
 	if (!arr)
 		exit(1);
@@ -55,7 +55,7 @@ int	findmedian(t_stack *a)
 		i++;
 	}
 	bubble_sort(arr, a->size);
-	median = arr[--i];
+	median = arr[3];
 	free(arr);
 	return (median);
 }

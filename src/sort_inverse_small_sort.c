@@ -6,7 +6,7 @@
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 13:15:42 by anoviedo          #+#    #+#             */
-/*   Updated: 2025/02/20 08:21:19 by anoviedo         ###   ########.fr       */
+/*   Updated: 2025/02/25 16:23:54 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,15 +78,17 @@ int	move_largest_to_b(t_stack *a, t_stack *b)
 	return (cont);
 }
 
-int	inverse_small_sort(t_stack *a, t_stack *b)
+int	sort_inverse_small_sort(t_stack *a, t_stack *b)
 {
 	int	cont;
 
 	cont = 0;
 	if (a->size == 5)
 		cont += move_largest_to_b(a, b);
-	cont += move_largest_to_b(a, b);
-	cont += sort_inverse_b(a);
+	if (a->size >= 4)
+		cont += move_largest_to_b(a, b);
+	if (a->size <= 3)
+		cont += sort_tiny_inverse(a, b);
 	pa(a, b);
 	write(1, "pa\n", 3);
 	cont++;

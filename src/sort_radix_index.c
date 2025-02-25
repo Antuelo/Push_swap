@@ -6,35 +6,11 @@
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 15:18:13 by anoviedo          #+#    #+#             */
-/*   Updated: 2025/02/21 17:28:30 by anoviedo         ###   ########.fr       */
+/*   Updated: 2025/02/21 17:48:56 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-
-void	bubble_sort2(int *arr, int size)
-{
-	int	i;
-	int	j;
-	int	temp;
-
-	i = 0;
-	while (i < size - 1)
-	{
-		j = 0;
-		while (j < size - i - 1)
-		{
-			if (arr[j] > arr[j + 1])
-			{
-				temp = arr[j];
-				arr[j] = arr[j + 1];
-				arr[j + 1] = temp;
-			}
-			j++;
-		}
-		i++;
-	}
-}
 
 int	*take_array(t_stack *a)
 {
@@ -53,7 +29,7 @@ int	*take_array(t_stack *a)
 		node = node->next;
 		i++;
 	}
-	bubble_sort2(arr, a->size);
+	bubble_sort(arr, a->size);
 	return (arr);
 }
 
