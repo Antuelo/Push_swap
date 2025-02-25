@@ -6,14 +6,13 @@
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 14:26:54 by anoviedo          #+#    #+#             */
-/*   Updated: 2025/02/20 08:12:09 by anoviedo         ###   ########.fr       */
+/*   Updated: 2025/02/25 22:41:57 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-/* generer un stack vide ... pour le debut du programme
-crea un stack vacio (para el comienzo del programa) */
+/* generer un stack vide ... pour le debut du programme */
 
 void	create_stack(t_stack *stack)
 {

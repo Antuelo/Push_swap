@@ -6,7 +6,7 @@
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 16:27:21 by anoviedo          #+#    #+#             */
-/*   Updated: 2025/02/20 16:43:07 by anoviedo         ###   ########.fr       */
+/*   Updated: 2025/02/25 22:39:21 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 
 void	pa(t_stack *a, t_stack *b)
 {
-	int		value;
-	int		error;
+	int	value;
+	int	error;
 
 	error = 0;
 	value = pop(b);
@@ -30,8 +30,8 @@ void	pa(t_stack *a, t_stack *b)
 
 void	pb(t_stack *a, t_stack *b)
 {
-	int		value;
-	int		error;
+	int	value;
+	int	error;
 
 	error = 0;
 	value = pop(a);
@@ -44,8 +44,8 @@ void	pb(t_stack *a, t_stack *b)
 
 int	has_duplicate(t_stack *stack)
 {
-	t_node		*current;
-	t_node		*checker;
+	t_node	*current;
+	t_node	*checker;
 
 	current = stack->top;
 	while (current)

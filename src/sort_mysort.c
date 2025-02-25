@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_quicksort.c                                   :+:      :+:    :+:   */
+/*   sort_mysort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 13:03:15 by anoviedo          #+#    #+#             */
-/*   Updated: 2025/02/25 18:38:32 by anoviedo         ###   ########.fr       */
+/*   Updated: 2025/02/25 22:13:29 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,25 @@
 int	findpos(t_stack *a, int median)
 {
 	int		*arr;
-	int		i;
+	int		pos;
 	t_node	*node;
 
 	node = a->top;
-	i = 0;
+	pos = 0;
 	arr = malloc(sizeof(int) * a->size);
 	if (!arr)
 		exit(1);
 	while (node)
 	{
-		arr[i] = node->value;
+		arr[pos] = node->value;
 		node = node->next;
-		i++;
+		pos++;
 	}
-	i = 0;
-	while (arr[i] != median)
-		i++;
+	pos = 0;
+	while (arr[pos] != median)
+		pos++;
 	free(arr);
-	return (i);
+	return (pos);
 }
 
 int	rra(t_stack *a, t_stack *b, int median)
@@ -41,7 +41,6 @@ int	rra(t_stack *a, t_stack *b, int median)
 	if (a->top->value < median)
 	{
 		pb(a, b);
-		printf("LA MEDIAN EN rra ES : %d\n", median);
 		write(1, "pb\n", 3);
 		return (1);
 	}
@@ -58,7 +57,6 @@ int	ra(t_stack *a, t_stack *b, int median)
 	if (a->top->value < median)
 	{
 		pb(a, b);
-		printf("la media en RA es : %d\n", median);
 		write(1, "pb\n", 3);
 		return (1);
 	}
@@ -70,59 +68,37 @@ int	ra(t_stack *a, t_stack *b, int median)
 	}
 }
 
-int	quicksort(t_stack *a, t_stack *b)
+void	push_three_to_b(t_stack *a, t_stack *b, int median)
 {
-	int	median;
-	int	count;
 	int	pos;
 	int	pushed;
 
-	count = 0;
+	pos = findpos(a, median);
+	pushed = 0;
+	while (pushed < 3 && a->size > 0)
+	{
+		if (pos < a->size / 2)
+			pushed += ra(a, b, median);
+		else
+			pushed += rra(a, b, median);
+	}
+}
+
+void	mysort(t_stack *a, t_stack *b)
+{
+	int	median;
+
 	while (a->size > 5)
 	{
 		median = findmedian(a);
-		pos = findpos(a, median);
-		printf("Nueva median: %d\n la posicion es : %d\n", median, pos);
-		pushed = 0;
-		while (pushed < 3 && a->size > 0)
-		{
-			if (pos < a->size / 2)
-				pushed += ra(a, b, median);
-			else
-				pushed += rra(a, b, median);
-		}
-		print_stacks(a, b);
+		push_three_to_b(a, b, median);
 		if (b->size > 1)
-		{
-			count += sort_tiny_inverse(a, b);
-			printf("aqui aplicamos inverse tiny sort");
-			print_stacks(a, b);
-		}
+			sort_tiny_inverse(a, b);
 	}
 	small_sort(a, b);
 	while (b->size > 0)
 	{
 		pa(a, b);
 		write(1, "pa\n", 3);
-		count++;
 	}
-	return (count);
 }
-
-/*int	push_lower_half_to_b(t_stack *a, t_stack *b, int median, int pos)
-{
-	int	count;
-	int	pushed;
-
-	count = 0;
-	pushed = 0;
-	while (pushed != 1)
-	{
-		if (pos < a->size / 2)
-			pushed = ra(a, b, median);
-		else
-			pushed = rra(a, b, median);
-		count++;
-	}
-	return (count);
-}*/
