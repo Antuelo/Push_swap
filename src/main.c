@@ -6,7 +6,7 @@
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 14:26:27 by anoviedo          #+#    #+#             */
-/*   Updated: 2025/02/25 22:05:13 by anoviedo         ###   ########.fr       */
+/*   Updated: 2025/03/06 21:16:36 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,9 @@ void	sort_stack(t_stack *stack_a, t_stack *stack_b)
 		tiny_sort(stack_a);
 	else if (stack_a->size > 3 && stack_a->size <= 5)
 		small_sort(stack_a, stack_b);
-	else if (stack_a->size > 5 && stack_a->size <= 50)
+	else if (stack_a->size > 5 && stack_a->size <= 40)
 		mysort(stack_a, stack_b);
-	else if (stack_a->size > 5)
+	else if (stack_a->size > 40)
 	{
 		sort_radix_index(stack_a);
 		sort_radix(stack_a, stack_b);
@@ -68,7 +68,7 @@ int	main(int argc, char **argv)
 		return (0);
 	init_stacks(&stack_a, &stack_b);
 	fill_stack(&stack_a, &stack_b, argc, argv);
-	if (stack_a.size == 1 || !its_ordered(&stack_a))
+	if (stack_a.size == 1 || its_ordered(&stack_a))
 	{
 		free_stack(&stack_a);
 		free_stack(&stack_b);

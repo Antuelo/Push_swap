@@ -6,7 +6,7 @@
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 14:26:54 by anoviedo          #+#    #+#             */
-/*   Updated: 2025/02/25 22:41:57 by anoviedo         ###   ########.fr       */
+/*   Updated: 2025/03/06 19:31:08 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,8 +95,8 @@ int	its_ordered(t_stack *a)
 	while (current->next)
 	{
 		if (current->value > current->next->value)
-			return (1);
+			return (0);
 		current = current->next;
 	}
-	return (0);
+	return (1);
 }

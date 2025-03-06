@@ -6,7 +6,7 @@
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 23:54:39 by anoviedo          #+#    #+#             */
-/*   Updated: 2025/02/25 23:10:33 by anoviedo         ###   ########.fr       */
+/*   Updated: 2025/02/26 00:36:32 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,14 +54,13 @@ void				small_sort(t_stack *a, t_stack *b);
 void				free_stack(t_stack *stack);
 int					its_ordered(t_stack *a);
 void				mysort(t_stack *a, t_stack *b);
-void				sort_inverse_b(t_stack *b);
-void				sort_inverse_small_sort(t_stack *a, t_stack *b);
 int					findmedian(t_stack *a);
 void				sort_radix(t_stack *a, t_stack *b);
 void				sort_radix_index(t_stack *a);
 void				bubble_sort(int *arr, int size);
 int					*take_array(t_stack *a);
 void				sort_tiny_inverse(t_stack *a, t_stack *b);
+int					*be_array(t_stack *a);
 
 void				print_stacks(t_stack *a, t_stack *b);
 
