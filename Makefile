@@ -1,5 +1,5 @@
 NAME = push_swap
-SRCS = main.c sort_mysort.c sort_radix_index.c sort_radix.c sort_small.c sort_tiny_inverse.c sort_tiny.c stack_operations.c stack_operations2.c stack_utils.c stack_utils2.c
+SRCS = src/main.c src/sort_mysort.c src/sort_radix_index.c src/sort_radix.c src/sort_small.c src/sort_tiny_inverse.c src/sort_tiny.c src/stack_operations.c src/stack_operations2.c src/stack_utils.c src/stack_utils2.c
 OBJS = $(SRCS:.c=.o)
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror

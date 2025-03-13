@@ -6,7 +6,7 @@
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 14:26:27 by anoviedo          #+#    #+#             */
-/*   Updated: 2025/03/06 21:16:36 by anoviedo         ###   ########.fr       */
+/*   Updated: 2025/03/13 17:12:42 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	sort_stack(t_stack *stack_a, t_stack *stack_b)
 {
 	if (stack_a->size <= 3)
 		tiny_sort(stack_a);
-	else if (stack_a->size > 3 && stack_a->size <= 5)
+	else if (stack_a->size <= 5)
 		small_sort(stack_a, stack_b);
 	else if (stack_a->size > 5 && stack_a->size <= 40)
 		mysort(stack_a, stack_b);
