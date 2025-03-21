@@ -6,7 +6,7 @@
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 23:54:39 by anoviedo          #+#    #+#             */
-/*   Updated: 2025/02/26 00:36:32 by anoviedo         ###   ########.fr       */
+/*   Updated: 2025/03/21 10:43:14 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void				pa(t_stack *a, t_stack *b);
 void				pb(t_stack *a, t_stack *b);
 int					is_valid_number(char *str);
 long				ft_atol(const char *str);
+char				**ft_split(char const *s, char c);
 int					has_duplicate(t_stack *stack);
 void				tiny_sort(t_stack *stack);
 void				small_sort(t_stack *a, t_stack *b);
@@ -61,7 +62,7 @@ void				bubble_sort(int *arr, int size);
 int					*take_array(t_stack *a);
 void				sort_tiny_inverse(t_stack *a, t_stack *b);
 int					*be_array(t_stack *a);
-
-void				print_stacks(t_stack *a, t_stack *b);
+void				transformation(int *argc, char ***argv);
+void				free_split(char **arr);
 
 #endif

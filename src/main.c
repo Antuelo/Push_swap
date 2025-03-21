@@ -6,16 +6,34 @@
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 14:26:27 by anoviedo          #+#    #+#             */
-/*   Updated: 2025/03/13 17:12:42 by anoviedo         ###   ########.fr       */
+/*   Updated: 2025/03/21 15:23:18 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	init_stacks(t_stack *stack_a, t_stack *stack_b)
+int	control_argument(int *argc, char ***argv)
 {
-	create_stack(stack_a);
-	create_stack(stack_b);
+	int	i;
+	int	space;
+
+	i = 0;
+	space = 0;
+	while ((*argv)[1][i])
+	{
+		if ((*argv)[1][i] == ' ')
+		{
+			space = 1;
+			break ;
+		}
+		i++;
+	}
+	if (space)
+	{
+		transformation(argc, argv);
+		return (1);
+	}
+	return (0);
 }
 
 void	handle_error(t_stack *stack_a, t_stack *stack_b)
@@ -63,19 +81,26 @@ int	main(int argc, char **argv)
 {
 	t_stack	stack_a;
 	t_stack	stack_b;
+	int		splited;
 
+	splited = 0;
 	if (argc < 2)
 		return (0);
-	init_stacks(&stack_a, &stack_b);
+	if (argc == 2)
+		splited = control_argument(&argc, &argv);
+	create_stack(&stack_a);
+	create_stack(&stack_b);
 	fill_stack(&stack_a, &stack_b, argc, argv);
 	if (stack_a.size == 1 || its_ordered(&stack_a))
 	{
-		free_stack(&stack_a);
-		free_stack(&stack_b);
-		return (0);
+		if (splited)
+			free_split(argv);
+		return (free_stack(&stack_a), free_stack(&stack_b), 0);
 	}
 	sort_stack(&stack_a, &stack_b);
 	free_stack(&stack_a);
 	free_stack(&stack_b);
+	if (splited)
+		free_split(argv);
 	return (0);
 }
