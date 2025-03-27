@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   transformations.c                                  :+:      :+:    :+:   */
+/*   transformation.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
+/*   By: anoviedo <anoviedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 09:27:08 by anoviedo          #+#    #+#             */
-/*   Updated: 2025/03/21 10:32:05 by anoviedo         ###   ########.fr       */
+/*   Updated: 2025/03/27 17:48:21 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,41 @@ void	free_split(char **arr)
 	free(arr);
 }
 
-void	transformation(int *argc, char ***argv)
+static char	**prepend_program_name(char **split_args, int count)
 {
-	char	**args;
+	char	**new_argv;
+	int		i;
 
-	args = ft_split((*argv)[1], ' ');
-	if (!args || !args[0])
+	new_argv = malloc(sizeof(char *) * (count + 2));
+	if (!new_argv)
+		exit(1);
+	new_argv[0] = ft_strdup("push_swap");
+	i = 0;
+	while (i < count)
 	{
-		free_split(args);
+		new_argv[i + 1] = split_args[i];
+		i++;
+	}
+	new_argv[i + 1] = NULL;
+	return (new_argv);
+}
+
+int	transformation(int *argc, char ***argv)
+{
+	char	**split_args;
+	int		count;
+
+	split_args = ft_split((*argv)[1], ' ');
+	if (!split_args || !split_args[0])
+	{
 		write(1, "error\n", 6);
 		exit(1);
 	}
-	*argv = args;
-	*argc = 0;
-	while (args[*argc])
-		(*argc)++;
+	count = 0;
+	while (split_args[count])
+		count++;
+	*argv = prepend_program_name(split_args, count);
+	free(split_args);
+	*argc = count + 1;
+	return (1);
 }

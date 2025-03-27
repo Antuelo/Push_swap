@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
+/*   By: anoviedo <anoviedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 14:26:27 by anoviedo          #+#    #+#             */
-/*   Updated: 2025/03/21 15:23:18 by anoviedo         ###   ########.fr       */
+/*   Updated: 2025/03/27 17:48:47 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	control_argument(int *argc, char ***argv)
+/*int	control_argument(int *argc, char ***argv)
 {
 	int	i;
 	int	space;
@@ -34,7 +34,7 @@ int	control_argument(int *argc, char ***argv)
 		return (1);
 	}
 	return (0);
-}
+}*/
 
 void	handle_error(t_stack *stack_a, t_stack *stack_b)
 {
@@ -77,6 +77,33 @@ void	sort_stack(t_stack *stack_a, t_stack *stack_b)
 	}
 }
 
+/*int	main(int argc, char **argv)
+{
+	t_stack	stack_a;
+	t_stack	stack_b;
+	int		splited;
+
+	if (argc < 2)
+		return (0);
+	if (argc == 2)
+		splited = transformation(&argc, &argv);
+	create_stack(&stack_a);
+	create_stack(&stack_b);
+	fill_stack(&stack_a, &stack_b, argc, argv);
+	if (stack_a.size == 1 || its_ordered(&stack_a))
+	{
+		if (splited == 1)
+			free_split(argv);
+		return (free_stack(&stack_a), free_stack(&stack_b), 0);
+	}
+	sort_stack(&stack_a, &stack_b);
+	free_stack(&stack_a);
+	free_stack(&stack_b);
+	if (splited == 1)
+		free_split(argv);
+	return (0);
+}*/
+
 int	main(int argc, char **argv)
 {
 	t_stack	stack_a;
@@ -87,11 +114,11 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (0);
 	if (argc == 2)
-		splited = control_argument(&argc, &argv);
+		splited = transformation(&argc, &argv);
 	create_stack(&stack_a);
 	create_stack(&stack_b);
 	fill_stack(&stack_a, &stack_b, argc, argv);
-	if (stack_a.size == 1 || its_ordered(&stack_a))
+	if (stack_a.size <= 1 || its_ordered(&stack_a))
 	{
 		if (splited)
 			free_split(argv);

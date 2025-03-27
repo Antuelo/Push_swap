@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
+/*   By: anoviedo <anoviedo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 23:54:39 by anoviedo          #+#    #+#             */
-/*   Updated: 2025/03/21 10:43:14 by anoviedo         ###   ########.fr       */
+/*   Updated: 2025/03/27 17:44:00 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,8 @@ void				bubble_sort(int *arr, int size);
 int					*take_array(t_stack *a);
 void				sort_tiny_inverse(t_stack *a, t_stack *b);
 int					*be_array(t_stack *a);
-void				transformation(int *argc, char ***argv);
+int					transformation(int *argc, char ***argv);
 void				free_split(char **arr);
+char				*ft_strdup(const char *s);
 
 #endif
